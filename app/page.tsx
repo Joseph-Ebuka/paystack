@@ -1,14 +1,14 @@
-"use client"
-import React, { useState } from "react"
-import { PaystackButton } from "react-paystack"
-import Image from "next/image"
+"use client";
+import React, { useState } from "react";
+import { PaystackButton } from "react-paystack";
+import Image from "next/image";
 
 const App = () => {
-  const publicKey = "pk_test_579b64f84c9afa70dce2fb638479077310a4d8cd"
-  const amount = 1000000
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
+  const publicKey = "pk_test_579b64f84c9afa70dce2fb638479077310a4d8cd";
+  const amount = 1000000;
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const componentProps = {
     email,
@@ -19,26 +19,28 @@ const App = () => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: (data: any) =>{
+    onSuccess: (data: any) => {
       alert("Thanks for doing business with us! Come back soon!!"),
-      console.log(data)
+        console.log(data);
     },
 
-    
-    onClose: () => alert("Wait! Don't leave :("),
-  }
+    onClose: (data: any) => {
+      alert("Wait! Don't leave :(");
+      console.log(data);
+    },
+  };
 
   return (
     <div className="flex items-center justify-center w-full h-full">
       <div className="">
-        <div className="item">
+        <div className="">
           <div className="">
             <p>Test</p>
             <p>{amount}</p>
           </div>
         </div>
-        <div className="checkout-form">
-          <form>
+        <div className="flex flex-col gap-3">
+          <form className="flex flex-col gap-y-3">
             <label>Name</label>
             <input
               type="text"
@@ -62,7 +64,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
